@@ -1,0 +1,8 @@
+services:
+  dumbproxy:
+    image: ghcr.io/senseunit/dumbproxy:latest
+    container_name: dumbproxy
+    ports:
+      - "8080:8080"
+    command: ["-bind-address", ":8080", "-verbosity", "20"]
+    restart: unless-stopped

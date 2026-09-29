@@ -1,0 +1,16 @@
+*.log
+.env
+docker-compose.override.yml
+*.key
+*.pem
+*.crt
+secrets/
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*~

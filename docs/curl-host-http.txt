@@ -1,0 +1,23 @@
+* Host localhost:8080 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:8080...
+* Connected to localhost (::1) port 8080
+> GET http://example.org/ HTTP/1.1
+> Host: example.org
+> User-Agent: curl/8.5.0
+> Accept: */*
+> Proxy-Connection: Keep-Alive
+> 
+< HTTP/1.1 403 Forbidden
+< Content-Type: text/plain; charset=utf-8
+< X-Content-Type-Options: nosniff
+< Date: Tue, 29 Sep 2026 13:07:03 GMT
+< Content-Length: 14
+< 
+{ [14 bytes data]
+100    14  100    14    0     0   6143      0 --:--:-- --:--:-- --:--:--  7000
+* Connection #0 to host localhost left intact
+Access denied

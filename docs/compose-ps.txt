@@ -1,0 +1,2 @@
+NAME        IMAGE                                COMMAND                  SERVICE     CREATED          STATUS          PORTS
+dumbproxy   ghcr.io/senseunit/dumbproxy:latest   "/dumbproxy -bind-ad…"   dumbproxy   20 minutes ago   Up 20 minutes   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
