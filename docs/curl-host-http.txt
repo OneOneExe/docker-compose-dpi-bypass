@@ -1,23 +1,23 @@
-* Host localhost:8080 was resolved.
-* IPv6: ::1
-* IPv4: 127.0.0.1
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:8080...
-* Connected to localhost (::1) port 8080
-> GET http://example.org/ HTTP/1.1
-> Host: example.org
-> User-Agent: curl/8.5.0
-> Accept: */*
-> Proxy-Connection: Keep-Alive
-> 
-< HTTP/1.1 403 Forbidden
-< Content-Type: text/plain; charset=utf-8
-< X-Content-Type-Options: nosniff
-< Date: Tue, 29 Sep 2026 13:07:03 GMT
-< Content-Length: 14
-< 
-{ [14 bytes data]
-100    14  100    14    0     0   6143      0 --:--:-- --:--:-- --:--:--  7000
-* Connection #0 to host localhost left intact
-Access denied
+=== HTTP code ===
+200
+
+=== Headers ===
+HTTP/1.1 200 OK
+Cf-Cache-Status: DYNAMIC
+Cf-Ray: a43431f40bf0a2bf-SOF
+Content-Security-Policy: default-src 'none'; script-src 'self' 'report-sha256' 'report-sample'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; report-uri https://scotthelme.report-uri.com/r/d/csp/enforce; report-to default
+Content-Type: text/html
+Cross-Origin-Resource-Policy: same-origin
+Date: Wed, 30 Sep 2026 15:17:33 GMT
+Last-Modified: Wed, 01 Jul 2026 19:39:17 GMT
+Nel: {"report_to":"default","max_age":31536000,"include_subdomains":true}
+Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), usb=(), web-share=(), xr-spatial-tracking=(), interest-cohort=(), browsing-topics=()
+Referrer-Policy: strict-origin-when-cross-origin
+Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://scotthelme.report-uri.com/a/d/g"}],"include_subdomains":true}
+Reporting-Endpoints: default="https://scotthelme.report-uri.com/a/d/g"
+Server: cloudflare
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Permitted-Cross-Domain-Policies: none
+X-Xss-Protection: 0
+

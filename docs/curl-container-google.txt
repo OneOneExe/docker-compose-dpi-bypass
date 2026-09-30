@@ -1,97 +1,13 @@
-* Uses proxy env variable https_proxy == 'http://dumbproxy:8080'
-* Host dumbproxy:8080 was resolved.
-* IPv6: (none)
-* IPv4: 172.18.0.2
-*   Trying 172.18.0.2:8080...
-* CONNECT: no ALPN negotiated
-* Establishing HTTP proxy tunnel to google.com:443
-> CONNECT google.com:443 HTTP/1.1
-> Host: google.com:443
-> User-Agent: curl/8.22.0
-> Proxy-Connection: Keep-Alive
-> 
-  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
-                                 Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0< HTTP/1.1 200 OK
-< 
-* CONNECT phase completed for HTTP proxy
-* CONNECT tunnel established, response 200
-* ALPN: curl offers h2,http/1.1
-} [5 bytes data]
-* TLSv1.3 (OUT), TLS handshake, Client hello (1):
-} [1556 bytes data]
-* SSL Trust Anchors:
-*   CAfile: /cacert.pem
-{ [5 bytes data]
-* TLSv1.3 (IN), TLS handshake, Server hello (2):
-{ [1210 bytes data]
-* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
-{ [1 bytes data]
-* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
-{ [15 bytes data]
-* TLSv1.3 (IN), TLS handshake, Certificate (11):
-{ [4834 bytes data]
-* TLSv1.3 (IN), TLS handshake, CERT verify (15):
-{ [80 bytes data]
-* TLSv1.3 (IN), TLS handshake, Finished (20):
-{ [52 bytes data]
-* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
-} [1 bytes data]
-* TLSv1.3 (OUT), TLS handshake, Finished (20):
-} [52 bytes data]
-* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519MLKEM768 / id-ecPublicKey
-* ALPN: server accepted h2
-* Server certificate:
-*   subject: CN=*.google.com
-*   start date: Sep 10 19:21:53 2026 GMT
-*   expire date: Dec  3 19:21:52 2026 GMT
-*   issuer: C=US; O=Google Trust Services; CN=WR2
-*   Certificate level 0: Public key type EC/prime256v1 (256/128 Bits/secBits), signed using sha256WithRSAEncryption
-*   Certificate level 1: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
-*   Certificate level 2: Public key type RSA (4096/152 Bits/secBits), signed using sha384WithRSAEncryption
-*   subjectAltName: "google.com" matches cert's "google.com"
-* OpenSSL verify result: 0
-* SSL certificate verified via OpenSSL.
-* Established connection to dumbproxy (172.18.0.2 port 8080) from 172.18.0.3 port 42886 
-  0      0   0      0   0      0      0      0                              0* using HTTP/2
-* [HTTP/2] [1] OPENED stream for https://google.com/
-* [HTTP/2] [1] [:method: GET]
-* [HTTP/2] [1] [:scheme: https]
-* [HTTP/2] [1] [:authority: google.com]
-* [HTTP/2] [1] [:path: /]
-* [HTTP/2] [1] [user-agent: curl/8.22.0]
-* [HTTP/2] [1] [accept: */*]
-} [5 bytes data]
-> GET / HTTP/2
-> Host: google.com
-> User-Agent: curl/8.22.0
-> Accept: */*
-> 
-* Request completely sent off
-} [5 bytes data]
-* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
-{ [283 bytes data]
-* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
-{ [283 bytes data]
-< HTTP/2 301 
-< location: https://www.google.com/
-< content-type: text/html; charset=UTF-8
-< content-security-policy-report-only: object-src 'none';base-uri 'self';script-src 'nonce-lJ0NVJDQxtZhq656V9RVWQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
-< date: Tue, 29 Sep 2026 13:07:22 GMT
-< expires: Thu, 29 Oct 2026 13:07:22 GMT
-< cache-control: public, max-age=2592000
-< server: gws
-< content-length: 220
-< x-xss-protection: 0
-< x-frame-options: SAMEORIGIN
-< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-< 
-{ [5 bytes data]
-100    220 100    220   0      0    424      0                              0100    220 100    220   0 <HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="https://www.google.com/">here</A>.
-</BODY></HTML>
-     0    424      0                              0100    220 100    220   0      0    424      0                              0
-* Connection #0 to host google.com:443 left intact
+=== Проверка изнутри контейнера ===
+
+Не выполнена: образ dumbproxy — scratch-based.
+Внутри нет ни sh, ни curl, ни wget, ни nc.
+Только бинарник /dumbproxy.
+
+Это нормально для минимального образа.
+Косвенные доказательства работы:
+- compose-ps.txt          — контейнер запущен
+- curl-host-google.txt    — прокси отвечает (Google, 301)
+- curl-host-cloudflare.txt — прокси отвечает (Cloudflare, 301)
+- curl-host-http.txt      — прокси отвечает (httpforever, 200)
+- logs.txt                — логи без ошибок

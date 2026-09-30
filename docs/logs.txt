@@ -1,11 +1,32 @@
-dumbproxy  | MAIN    : 2026/09/29 12:47:25 main.go:785: INFO     dumbproxy v1.52.1 (c) 2020-2026 Vladislav Yarmak and Contributors...
-dumbproxy  | MAIN    : 2026/09/29 12:47:25 main.go:942: INFO     Proxy server started.
-dumbproxy  | PROXY   : 2026/09/29 12:48:12 handler.go:245: INFO     Request: 172.18.0.1:60838 => 172.18.0.2:8080 "" HTTP/1.1 CONNECT //google.com:443
-dumbproxy  | PROXY   : 2026/09/29 12:49:55 handler.go:245: INFO     Request: 172.18.0.1:59160 => 172.18.0.2:8080 "" HTTP/1.1 CONNECT //cloudflare.com:443
-dumbproxy  | PROXY   : 2026/09/29 12:50:12 handler.go:245: INFO     Request: 172.18.0.1:52898 => 172.18.0.2:8080 "" HTTP/1.1 CONNECT //github.com:443
-dumbproxy  | PROXY   : 2026/09/29 12:50:30 handler.go:245: INFO     Request: 172.18.0.1:48682 => 172.18.0.2:8080 "" HTTP/1.1 GET http://example.org/
-dumbproxy  | PROXY   : 2026/09/29 12:50:30 handler.go:185: WARNING  Access denied: failed to dial example.org:80: 2 errors occurred:
+dumbproxy  | MAIN    : 2026/09/30 15:08:19 main.go:785: INFO     dumbproxy v1.52.1 (c) 2020-2026 Vladislav Yarmak and Contributors...
+dumbproxy  | MAIN    : 2026/09/30 15:08:19 main.go:942: INFO     Proxy server started.
+dumbproxy  | PROXY   : 2026/09/30 15:10:51 handler.go:245: INFO     Request: 172.18.0.1:60246 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://google.com/
+dumbproxy  | PROXY   : 2026/09/30 15:10:51 handler.go:194: INFO     172.18.0.1:60246 GET http://google.com/ 301 Moved Permanently
+dumbproxy  | PROXY   : 2026/09/30 15:11:01 handler.go:245: INFO     Request: 172.18.0.1:59420 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://google.com/
+dumbproxy  | PROXY   : 2026/09/30 15:11:01 handler.go:194: INFO     172.18.0.1:59420 GET http://google.com/ 301 Moved Permanently
+dumbproxy  | PROXY   : 2026/09/30 15:11:47 handler.go:245: INFO     Request: 172.18.0.1:48378 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://cloudflare.com/
+dumbproxy  | PROXY   : 2026/09/30 15:11:47 handler.go:194: INFO     172.18.0.1:48378 GET http://cloudflare.com/ 301 Moved Permanently
+dumbproxy  | PROXY   : 2026/09/30 15:11:55 handler.go:245: INFO     Request: 172.18.0.1:48384 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://cloudflare.com/
+dumbproxy  | PROXY   : 2026/09/30 15:11:56 handler.go:194: INFO     172.18.0.1:48384 GET http://cloudflare.com/ 301 Moved Permanently
+dumbproxy  | PROXY   : 2026/09/30 15:12:30 handler.go:245: INFO     Request: 172.18.0.1:46700 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://example.com/
+dumbproxy  | PROXY   : 2026/09/30 15:12:31 handler.go:185: WARNING  Access denied: failed to dial example.com:80: 2 errors occurred:
 dumbproxy  | 	* access denied: destination address 127.0.0.1 is not allowed by destination address filter
 dumbproxy  | 	* access denied: destination address ::1 is not allowed by destination address filter
 dumbproxy  | 
-dumbproxy  | PROXY   : 2026/09/29 13:03:19 handler.go:245: INFO     Request: 172.18.0.3:42060 => 172.18.0.2:8080 "" HTTP/1.1 CONNECT //google.com:443
+dumbproxy  | PROXY   : 2026/09/30 15:13:01 handler.go:245: INFO     Request: 172.18.0.1:56396 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://example.com/
+dumbproxy  | PROXY   : 2026/09/30 15:13:01 handler.go:185: WARNING  Access denied: failed to dial example.com:80: 2 errors occurred:
+dumbproxy  | 	* access denied: destination address 127.0.0.1 is not allowed by destination address filter
+dumbproxy  | 	* access denied: destination address ::1 is not allowed by destination address filter
+dumbproxy  | 
+dumbproxy  | PROXY   : 2026/09/30 15:13:46 handler.go:245: INFO     Request: 172.18.0.1:54506 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://neverssl.com/
+dumbproxy  | PROXY   : 2026/09/30 15:13:47 handler.go:194: INFO     172.18.0.1:54506 GET http://neverssl.com/ 200 OK
+dumbproxy  | PROXY   : 2026/09/30 15:14:00 handler.go:245: INFO     Request: 172.18.0.1:53988 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://neverssl.com/
+dumbproxy  | PROXY   : 2026/09/30 15:15:12 handler.go:189: ERROR    HTTP fetch error: context canceled
+dumbproxy  | PROXY   : 2026/09/30 15:16:09 handler.go:245: INFO     Request: 172.18.0.1:51646 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://neverssl.com/
+dumbproxy  | PROXY   : 2026/09/30 15:16:19 handler.go:189: ERROR    HTTP fetch error: context canceled
+dumbproxy  | PROXY   : 2026/09/30 15:16:19 handler.go:245: INFO     Request: 172.18.0.1:56854 => 172.18.0.2:8080 "admin" HTTP/1.1 HEAD http://neverssl.com/
+dumbproxy  | PROXY   : 2026/09/30 15:16:29 handler.go:189: ERROR    HTTP fetch error: context canceled
+dumbproxy  | PROXY   : 2026/09/30 15:17:30 handler.go:245: INFO     Request: 172.18.0.1:53374 => 172.18.0.2:8080 "admin" HTTP/1.1 GET http://httpforever.com/
+dumbproxy  | PROXY   : 2026/09/30 15:17:31 handler.go:194: INFO     172.18.0.1:53374 GET http://httpforever.com/ 200 OK
+dumbproxy  | PROXY   : 2026/09/30 15:17:32 handler.go:245: INFO     Request: 172.18.0.1:53384 => 172.18.0.2:8080 "admin" HTTP/1.1 HEAD http://httpforever.com/
+dumbproxy  | PROXY   : 2026/09/30 15:17:33 handler.go:194: INFO     172.18.0.1:53384 HEAD http://httpforever.com/ 200 OK
